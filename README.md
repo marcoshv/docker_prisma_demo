@@ -1,6 +1,2 @@
-# Docker_image_test_prisma_clous
-# Docker_image_test_prisma_cloud
-# Docker_image_test_prisma_cloud
-# Docker_image_test_prisma_cloud
-# Docker_image_test_prisma_cloud
+
 # docker_prisma_demo
