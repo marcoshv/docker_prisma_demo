@@ -20,10 +20,11 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     
-      - name: Run Prisma Cloud
-        id: Prisma Cloud
-        uses: bridgecrewio/checkov-action@master
-        env:
-          PRISMA_API_URL: https://api2.prismacloud.io
+      - name: Prisma Cloud image scan
+        id: scan
+        uses: PaloAltoNetworks/prisma-cloud-scan@v1
         with:
-          api-key: ${{ secrets.BC_API_KEY }}
+          pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
+          pcc_user: ${{ secrets.PCC_USER }}
+          pcc_pass: ${{ secrets.PCC_PASS }}
+          image_name: ${{ env.IMAGE_NAME }}
