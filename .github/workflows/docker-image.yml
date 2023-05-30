@@ -16,7 +16,6 @@ jobs:
         run: docker build -t $IMAGE_NAME .
     
       - name: Prisma Cloud Scan
-        id: scan
         uses: PaloAltoNetworks/prisma-cloud-scan@v1.2.0
         with:
           pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
