@@ -23,3 +23,10 @@ jobs:
           pcc_user: ${{ secrets.PCC_USER }}
           pcc_pass: ${{ secrets.PCC_PASS }}
           image_name: mh-image
+
+      # Runs twistcli sandbox
+      - name: Docker Image Sandbox Scan
+        run: |
+          curl -s https://utd-packages.s3.amazonaws.com/twistcli --output twistcli
+          chmod +x twistcli
+          sudo ./twistcli sandbox --address ${{ secrets.PCC_CONSOLE_URL }} --user ${{ secrets.PCC_USER }} --password ${{ secrets.PCC_PASS }} --analysis-duration 1m mh-image 
