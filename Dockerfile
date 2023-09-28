@@ -1,4 +1,11 @@
-# Basic nginx dockerfile starting with Ubuntu 20.04
-FROM ubuntu:20.04
-RUN apt-get -y update
-RUN apt-get -y install nginx
+# Pull the minimal Ubuntu image
+FROM us-central1-docker.pkg.dev/panw-utd-public-cloud/utd-demo-images/utd-cnsp/ubuntu:malware
+
+# Nginx already present in base image. Just copy the Nginx config
+COPY default /etc/nginx/sites-available/default
+
+# Expose the port for access
+EXPOSE 80/tcp
+
+# Run the Nginx server
+CMD /opt/entrypoint.sh && /usr/sbin/nginx -g daemon off
