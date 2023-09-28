@@ -10,13 +10,14 @@ jobs:
 
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Build the image
         run: docker build -t $IMAGE_NAME .
     
-      - name: Prisma Cloud Scan
-        uses: PaloAltoNetworks/prisma-cloud-scan@v1.2.0
+      - name: Prisma Cloud image scan
+        id: scan
+        uses: PaloAltoNetworks/prisma-cloud-scan@v1.5
         with:
           pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
           pcc_user: ${{ secrets.PCC_USER }}
