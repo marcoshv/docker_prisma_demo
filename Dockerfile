@@ -1,4 +1,5 @@
 # Pull the minimal Ubuntu image
+FROM scratch
 ARG RELEASE
 ARG LAUNCHPAD_BUILD_ARCH
 LABEL org.opencontainers.image.ref.name=ubuntu
