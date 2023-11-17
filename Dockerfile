@@ -4,7 +4,7 @@ ARG RELEASE
 ARG LAUNCHPAD_BUILD_ARCH
 LABEL org.opencontainers.image.ref.name=ubuntu
 LABEL org.opencontainers.image.version=18.04
-ADD file:4560926e076acae6b8396a9f1e760eee0f53e22e90ce8554dda57f1103547795 in /
+#ADD file:4560926e076acae6b8396a9f1e760eee0f53e22e90ce8554dda57f1103547795 in /
 CMD ["/bin/bash"]
 
 # Set user to root
