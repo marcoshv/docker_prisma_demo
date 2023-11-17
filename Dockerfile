@@ -10,7 +10,7 @@ CMD ["/bin/bash"]
 # Set user to root
 USER root
 
-apt update -y && apt install curl -qqy git wget netcat gcc build-essential procps iputils-ping dnsutils
+Run apt update -y && apt install curl -qqy git wget netcat gcc build-essential procps iputils-ping dnsutils
 
 WORKDIR /opt
 
