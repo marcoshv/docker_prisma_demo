@@ -1,0 +1,31 @@
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    exclude: 
+    - docs/*
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:  
+  - job: Build
+    displayName: Build_docker_image job
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        #repository: $(imageRepository)
+        dockerfile: /Dockerfile
+        containerRegistry: labq4containerregistry
+        tags: |
+          $(Build.BuildId)
+
+    - task: PublishPipelineArtifact@1
+      inputs:
+        artifactName: 'manifests'
+        path: 'manifests'
