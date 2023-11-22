@@ -21,7 +21,7 @@ stages:
         command: buildAndPush
         #repository: $(imageRepository)
         dockerfile: /Dockerfile
-        containerRegistry: labq4containerregistry
+        containerRegistry: labq4containerregistry.azurecr.io
         tags: |
           $(Build.BuildId)
 
